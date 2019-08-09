@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // nguyen am: a , e , o , i , u 
+    let str =prompt("Moi ban nhap chuoi:");
+
+     str = str.trim().toLowerCase();
+     let  newStr = "";
+        let dem = 0;
+     for (let i = 0 ; i < str.length ;i++)
+     {
+         if(str[i]== "a" || str[i] == "e" || str[i] == "o" || str[i] == "i" || str[i]=="u")
+         {
+             newStr +=str[i];
+             dem++;
+         }
+     }
+     alert("Co tat ca "+ dem + "phu am trong chuoi gom: "+ newStr);
+    </script>
+</body>
+</html>

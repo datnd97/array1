@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử. Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
+    let array = [3,1,5,2,1,5,6,10,6,1];
+    for(let i = 0 ; i  < array.length - 1 ;i++)
+    {
+        for(let j = i + 1;j <array.length ;j++ )
+        {
+            if(array[i] > array[j])
+            {
+                let temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+    }
+    console.log(array);
+    
+    </script>
+</body>
+</html>

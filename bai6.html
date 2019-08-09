@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)
+
+        let arr = [1, 2, 3, 4, 1, 5];
+       
+        let x = 3;
+        let vitri ;
+        let kiemTra = false;
+        for (let index = 0; index < arr.length; index++) {
+            if (x == arr[index]) {
+                kiemTra = true;
+                vitri = index;
+                let  delte = arr.splice(vitri,1);
+                let  addZero = arr.push(0);
+                
+            }
+       
+        }
+       
+        if (kiemTra) {
+            console.log("ki tu X co trong mang");
+            console.log("Mang moi la:"+arr);
+
+        }
+        else {
+            console.log("Khong tim thay ki tu X trong mang");
+        }
+        
+        // function mangMoi(dem)
+        // {   
+        //     let result = [];
+        //     for(let i = 0 ; i < dem ;i++)
+        //     {
+        //         result[i] = arr[i-1];
+              
+        //     }
+        //     return result;
+        // }
+
+
+    </script>
+</body>
+
+</html>

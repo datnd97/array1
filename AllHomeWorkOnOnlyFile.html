@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Chương trình khởi tạo mảng </h1>
+  <input type="text" id="value">
+  <button id="add" onclick="addItem()">Add</button>
+  <button onclick="displayItem()">Display</button>
+
+  <p id="display"></p>
+
+  <script>
+    let item = parseInt(prompt("Nhap so luong phan tu trong mang:"));
+    let arr = Array();
+    let e = "";
+    let scout = "";
+    let x = 0;
+    let numberV;
+    // Bài 1- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử. Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.
+    function addItem() {
+
+      if (x == item) {
+        alert("Bạn đã nhập quá số phần tử trong mảng.");
+      }
+      else {
+        arr[x] = parseInt(document.getElementById('value').value);
+        x++;
+        document.getElementById('value').value = "";
+      }
+    }
+    function displayItem() {
+      e = "<hr/>";
+      for (let i = 0; i < arr.length; i++) {
+        e += "Vi tri: " + i + " gia tri: " + arr[i] + "<br/>";
+      }
+      e += '</br></br><button onclick="soSanh()">Kiem tra lon hon 10</button>';
+      e += '<button onclick="TimSoLonNhat()">Tim so lon nhat</button>';
+      e += '<button onclick="TinhTrungBinh()">Tinh trung binh cac phan tu</button>';
+      e += '<button onclick="DaoNguoc()">Đảo ngược mảng</button>';
+      e += '<button onclick="timSoV()">Tìm số V</button>';
+      // e +='<button onclick="DemSoAm()">Kiểm tra số nguyên âm</button>';
+      e += "<p id='tiep'></p>";
+      document.getElementById("display").innerHTML = e;
+    }
+
+    //Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau. Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.
+    function soSanh() {
+      e = "<hr/>";
+      let check = false;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= 10) {
+          e += "<br><br>" + "Các giá trị lớn hơn hoặc bằng 10 là:" + arr[i] + " ở vị trí thứ:" + i;
+          check = true;
+
+        }
+
+
+      }
+      if (check == false) {
+        e += "Không có giá trị lớn hơn hoặc bằng 10."
+
+      }
+
+      document.getElementById('tiep').innerHTML = e;
+
+    }
+    //   Bài 3- Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong          đó. In ra giá trị trung bình của các phần tử trong mảng.
+    function TimSoLonNhat() {
+      e = "<hr/>";
+      let max = arr[0];
+      let vitri = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+          max = arr[i];
+          vitri = i;
+        }
+      }
+      e += "<br><br>" + "Phần tử lớn nhất trong mảng là: " + max + " tại vị trí thứ " + vitri;
+      document.getElementById('tiep').innerHTML = e;
+
+    }
+
+    function TinhTrungBinh() {
+      e = "</hr>";
+      let tong = 0;
+      for (let i = 0; i < arr.length; i++) {
+        tong += parseInt(arr[i]);
+
+      }
+
+
+      let trungBinh = tong / arr.length;
+      e += "<br><br>" + "Trung bình cộng của các giá trị trong mảng là:" + trungBinh;
+      document.getElementById('tiep').innerHTML = e;
+
+
+    }
+    //   Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.
+    function DaoNguoc() {
+
+      e = "</hr>";
+      let arrReverse = arr.reverse();
+      e += "<br><br>" + "Mảng mới là:" + arrReverse;
+      document.getElementById('tiep').innerHTML = e;
+    }
+    // Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình tìm xem V có nằm trong mảng số nguyên không? Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".
+    
+      function timSoV() {
+      e = "</hr>";
+      numberV = parseInt(prompt('Mời bạn nhập số V:'));
+      let kiemTraV = false;
+      let isNot = "not";
+      for(let i = 0 ; i  < arr.length ;i++)
+      {
+          if(numberV == arr[i])
+          {
+            kiemTraV =true;
+            isNot ="in";
+          }
+      }
+      if(isNot =="in")
+      {
+        e += "<br><br>" +"V : "+ numberV + " is "+ isNot + " in the array";
+        e += '<br><br> <button onclick="xoaSoV()">Xóa V ra khỏi mảng</button>';
+      }
+     
+      document.getElementById('tiep').innerHTML = e;
+    }
+    //     // Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình tìm xem V có nằm trong mảng số nguyên không? Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".
+    function xoaSoV(number,array)
+    {
+      let rs = new Array();
+      for(let i = 0 ; i < arr.length ;i++)
+      {
+          rs[i] = arr[i - 1];
+      }
+
+
+
+      return rs;
+    
+    }
+  </script>
+</body>
+
+</html>
